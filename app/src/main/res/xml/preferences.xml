@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:focusable="true"
+                  android:focusableInTouchMode="true">
+    <PreferenceCategory android:title="@string/pc_startup">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:key="service.start.onboot"
+            android:title="@string/pt_start_service_on_device_boot" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="service.start.onopen"
+            android:title="@string/pt_start_service_on_app_opening" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="service.start.on.intent.allowed"
+            android:title="@string/pt_start_service_by_intent_in_fg_allowed" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:dependency="service.start.onboot"
+            android:key="service.start.foreground"
+            android:summaryOff="@string/ps_foreground_off"
+            android:summaryOn="@string/ps_foreground_on"
+            android:title="@string/pt_foreground" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="service.onappexit.keep_running"
+            android:summaryOff="@string/disabled"
+            android:summaryOn="@string/enabled"
+            android:title="@string/pt_keep_running_after_app_exit"
+            />
+    </PreferenceCategory>
+
+    <com.hardbacknutter.sshd.settings.ExtPreferenceCategory
+        android:key="psk_dropbear_ssh"
+        android:title="@string/pc_dropbear">
+        <!-- Prefs.DEFAULT_PORT -->
+        <EditTextPreference
+            android:defaultValue="2222"
+            android:key="sshd.port"
+            android:title="@string/pt_port"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="dropbear.options"
+            android:title="@string/pt_cmdline_options"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="sshd.env"
+            android:title="@string/pt_env"
+            app:useSimpleSummaryProvider="true" />
+    </com.hardbacknutter.sshd.settings.ExtPreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pc_paths">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="sshd.enable.service.shell"
+            android:summaryOff="@string/disabled"
+            android:summaryOn="@string/enabled"
+            android:title="@string/pt_enable_shell_access"
+            />
+
+        <!-- default is set from code. -->
+        <EditTextPreference
+            android:icon="@drawable/home_24px"
+            android:key="sshd.home"
+            android:title="@string/pt_home"
+            app:useSimpleSummaryProvider="true" />
+        <!-- Prefs.DEFAULT_SHELL -->
+        <EditTextPreference
+            android:defaultValue="/system/bin/sh"
+            android:icon="@drawable/terminal_24px"
+            android:key="sshd.shell"
+            android:title="@string/pt_shell"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="sshd.enable.single.use.password"
+            android:title="@string/pt_single_use_passwords"
+            app:summary="@string/ps_single_use_password_info"
+            />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/vpn_key_24px"
+            android:key="sshd.enable.publickey.login"
+            android:title="@string/pt_public_key_login"
+            app:summary="@string/pt_public_key_login_info"
+            />
+        <!-- Not saved to preferences. Handled in code. -->
+        <EditTextPreference
+            android:defaultValue=""
+            android:icon="@drawable/supervisor_account_24px"
+            android:key="sshd.authorized.username"
+            android:title="@string/pt_authorized_username"
+            app:useSimpleSummaryProvider="true" />
+        <!-- Not saved to preferences. Handled in code. -->
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="sshd.authorized.username"
+            android:icon="@drawable/password_24px"
+            android:key="sshd.authorized.password"
+            android:title="@string/pt_authorized_password" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pc_ui">
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/pe_ui_theme_mode"
+            android:entryValues="@array/pv_ui_theme_mode"
+            android:icon="@drawable/settings_brightness_24px"
+            android:key="ui.theme"
+            android:title="@string/pt_ui_theme"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.App.TabLayout"
+           parent="Widget.Material3.TabLayout">
+        <item name="tabMode">scrollable</item>
+        <!-- Both indicator and text color are set to colorSecondary. -->
+        <item name="tabIndicatorColor">?attr/colorSecondary</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
+    </style>
+
+    <style name="Widget.App.CheckBox"
+           parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.CheckBox</item>
+    </style>
+
+    <style name="Widget.App.RadioButton"
+           parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton</item>
+    </style>
+
+    <style name="Widget.App.Switch"
+           parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+    </style>
+
+    <style name="Widget.App.SwitchPreference"
+           parent="Preference.SwitchPreference.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_material_switch</item>
+    </style>
+
+    <!-- used by the "buttonBarButtonStyle" attributes
+        REMINDER: the androidx.preference library AlertDialog does NOT use M3 ! -->
+    <style name="Widget.App.DialogButtonBarButtons"
+           parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="backgroundTint">@color/dialog_button_background_color</item>
+    </style>
+
+    <style name="Widget.App.DialogButtonBarButtons.Flush"
+           parent="Widget.Material3.Button.TextButton.Dialog.Flush">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="backgroundTint">@color/dialog_button_background_color</item>
+    </style>
+</resources>

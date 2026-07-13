@@ -1,0 +1,196 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    alias libs.plugins.android.application
+}
+
+/*
+    $HOME/.gradle/gradle.properties:
+        iKofi.properties=$HOME/blah/blah/iKofi.properties
+
+    $HOME/blah/blah/iKofi.properties:
+        sign.storeFile=$HOME/blah/blah/keystore.jks
+        sign.storePassword=MyStorePassword
+        sign.keyAlias=MyKeyAlias
+        sign.keyPassword=MyKeyPassword
+ */
+final def keystoreProperties = new Properties()
+if (project.hasProperty("iKofi.properties")) {
+    final def file = new File(project.property("iKofi.properties"))
+    if (file.exists()) {
+        keystoreProperties.load(new FileInputStream(file))
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.toolchain.get())
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.toolchain.get()))
+    }
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_11
+    }
+}
+
+android {
+    namespace = "com.hardbacknutter.sshd"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+
+    ndkVersion = libs.versions.ndk.get()
+
+    externalNativeBuild {
+        cmake {
+            path file('CMakeLists.txt')
+            version = libs.versions.cmakeVersion.get()
+        }
+    }
+
+    signingConfigs {
+        release {
+            if (!keystoreProperties.isEmpty()) {
+                storeFile = file(keystoreProperties["sign.storeFile"])
+                storePassword = keystoreProperties["sign.storePassword"]
+                keyAlias = keystoreProperties["sign.keyAlias"]
+                keyPassword = keystoreProperties["sign.keyPassword"]
+            } else {
+                println "Keystore properties file not found." +
+                        " No signing configuration will be applied."
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId = rootProject.ext.applicationId
+        versionCode = rootProject.ext.applicationVersionCode
+        versionName = rootProject.ext.applicationVersionName
+
+        minSdk = libs.versions.minSdk.get().toInteger()
+        targetSdk = libs.versions.targetSdk.get().toInteger()
+
+        externalNativeBuild {
+            cmake {
+                cFlags '-Wall -O'
+                cppFlags ''
+                // Passes optional arguments to CMake.
+                // https://developer.android.com/guide/practices/page-sizes#compile-r27-higher
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+            }
+        }
+
+        if (!keystoreProperties.isEmpty()) {
+            signingConfig = signingConfigs.release
+        }
+
+        resourceConfigurations +=  ["de", "en", "fr", "ta", "zh_CN"]
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("int", "NR_OF_LOG_LINES", "50")
+    }
+
+    buildTypes {
+        // don't use for real builds
+        abstractRelease {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+        }
+
+        release {
+            initWith(abstractRelease)
+            externalNativeBuild {
+                cmake {
+                    abiFilters("arm64-v8a")
+                }
+            }
+        }
+
+        debug {
+            debuggable = true
+            versionNameSuffix = "-debug"
+            applicationIdSuffix = ".debug"
+            buildConfigField("int", "NR_OF_LOG_LINES", "500")
+            externalNativeBuild {
+                cmake {
+                    abiFilters("arm64-v8a")
+                }
+            }
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_17
+
+        coreLibraryDesugaringEnabled = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            // Can be enabled to make Log.x work. OR, use Logger.x
+            returnDefaultValues = false
+        }
+    }
+
+    packagingOptions {
+        // This is extremely important.
+        // We need the libs available to the C execv() call,
+        // which means they MUST be extracted from the apk file.
+        jniLibs.useLegacyPackaging = true
+    }
+
+    lint {
+        // allow command line builds to complete
+        abortOnError = false
+    }
+
+    // https://developer.android.com/build/dependencies#dependency-info-play
+    dependenciesInfo {
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
+
+    androidComponents {
+        onVariants(selector().all(), { variant ->
+            variant.outputs.each { output ->
+                def name = "${rootProject.name}-${output.versionName.get()}.apk"
+                output.outputFileName.set(name)
+            }
+        })
+    }
+}
+
+dependencies {
+
+    coreLibraryDesugaring(libs.google.desugar)
+
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.fragment)
+    implementation(libs.androidx.lifecycle.livedata)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.localbroadcastmanager)
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.transition)
+    implementation(libs.google.material)
+
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+}

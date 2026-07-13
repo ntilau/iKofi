@@ -1,0 +1,62 @@
+[versions]
+# Android 11 as minimum... there are far too many issues/differences dealing
+# with storage permissions if we try for Android 10 or lower
+# See https://developer.android.com/training/data-storage
+minSdk = "30"
+# Android 16
+targetSdk = "36"
+compileSdk = "36"
+
+# JDK used by Gradle
+java-toolchain = "21"
+
+# https://developer.android.com/studio/projects/configure-agp-ndk
+ndk = "30.0.14904198"
+# don't forget to update CMakeLists.txt cmake_minimum_required
+cmakeVersion = "4.1.2"
+
+androidGradlePlugin = "9.2.1"
+
+# https://developer.android.com/jetpack/androidx/versions
+
+androidxActivity = "1.13.0"
+androidxAppcompat = "1.7.1"
+androidxConstraintlayout = "2.2.1"
+androidxCore = "1.18.0"
+androidxFragment = "1.8.9"
+androidxLifecycle = "2.10.0"
+androidxLocalbroadcastmanager = "1.1.0"
+androidxPreference = "1.2.1"
+androidxTransition = "1.7.0"
+
+# https://developer.android.com/jetpack/androidx/releases/test
+androidxTestCore = '1.7.0'
+androidxTestRunner = '1.7.0'
+androidxTestRules = '1.7.0'
+
+# https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
+desugar = "2.1.5"
+
+# https://github.com/material-components/material-components-android/releases
+material = '1.13.0'
+
+[libraries]
+androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidxActivity" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout" }
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragment" }
+androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-localbroadcastmanager = { group = "androidx.localbroadcastmanager", name="localbroadcastmanager", version.ref = "androidxLocalbroadcastmanager"}
+androidx-preference = { group = "androidx.preference", name = "preference-ktx", version.ref = "androidxPreference" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
+androidx-transition = { module = "androidx.transition:transition", version.ref = "androidxTransition" }
+
+google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+google-desugar = { group = "com.android.tools", name = "desugar_jdk_libs_nio", version.ref = "desugar" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

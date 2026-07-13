@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress LongLine -->
+<resources>
+    <!-- Service description needed for Android OS. -->
+    <string name="service_description">Provides an SSH/SFTP server with shell access, rsync and scp services.</string>
+
+    <!-- Dialog message/question. -->
+    <string name="msg_request_files_management">This application needs special permission to access your files in order to be able to use “rsync”. Without this permission the functionality of this app will be severely limited.\n\n After tapping “OK” you will be asked to enable this permission.\n Scroll down in the list of applications and enable iKofi.</string>
+
+    <!-- About dialog title:
+         Param 1: version string -->
+    <string name="about_title">iKofi %s</string>
+    <!-- Menu option -->
+    <string name="lbl_about">About</string>
+    <!-- Message text with component versions on the about Dialog.
+         Params 1,2,3: version numbers.
+    -->
+    <string name="about_versions">Services provided by:\n\nDropbear %1$s\nRsync %2$s\nSftp-server from %3$s</string>
+    <!-- Button text on the about Dialog.-->
+    <string name="lbl_github_project">Github project</string>
+
+    <string name="err_device_maybe_not_supported">Your device is either unsupported or you might need to set the permissions manually. Tap “OK” to visit the documentation on Github.</string>
+    <string name="err_failed_to_save">Failed to save the password</string>
+    <string name="err_key_import">Something went wrong while importing your keys.</string>
+    <string name="err_no_ip">No network interfaces found?</string>
+    <string name="err_no_version">Unknown</string>
+    <string name="err_port_number">The port must be between 1024 and 32768.</string>
+    <string name="err_service_failed_to_start">The service failed to start. Try again and check the log.</string>
+    <string name="err_unexpected_error">There was an unexpected error. Tap “OK” to visit the project page on Github and log a new issue.</string>
+
+    <!-- Dialog message/question. -->
+    <string name="warning_no_auth_methods">You have disabled all authentication methods. Are you sure you want to do this?</string>
+
+    <!-- shown as a notification in the device notification area -->
+    <string name="notification_listeners_list">iKofi is listening on %1$s</string>
+    <!-- Shown at the top of the screen followed by the list of interfaces (IP numbers) -->
+    <string name="lbl_all_interfaces">All interfaces:</string>
+    <!-- Shown at the top of the screen followed by the list of active interfaces (IP numbers) -->
+    <string name="lbl_listeners">Listening on:</string>
+
+    <!-- Label for the interface/address field.  -->
+    <string name="lbl_interface">Interface:</string>
+    <!-- Label for the port number field.  -->
+    <string name="lbl_port">Port:</string>
+
+    <!-- Menu option. Used on TV's. -->
+    <string name="lbl_import_keys">Import keys</string>
+    <!-- Menu option. -->
+    <string name="lbl_import_keys_long">Import an “authorized_keys” file</string>
+    <!-- Menu option. Used on TV's. -->
+    <string name="lbl_reset_keys">Delete all keys</string>
+    <string name="lbl_reset_keys_long">Delete all authorized keys</string>
+
+    <!-- Dialog message/question. -->
+    <string name="confirm_reset_keys">Delete all authorized_keys?\nYou will only be able to login with single-use passwords.</string>
+
+    <!-- Preference category title -->
+    <string name="pc_startup">Startup</string>
+    <!-- Preference option -->
+    <string name="pt_start_service_on_device_boot">Start the service when your device is booted.</string>
+    <!-- Preference option -->
+    <string name="pt_start_service_on_app_opening">Start the service when this app is launched.</string>
+    <!-- Preference option -->
+    <string name="pt_start_service_by_intent_in_fg_allowed">Allow starting the service by an external Intent</string>
+
+    <!-- Preference option -->
+    <string name="pt_foreground">Foreground Service</string>
+    <!-- Preference summary/info message. -->
+    <string name="ps_foreground_on">The service will keep running even when this app is in the background. A permanent/unobtrusive notification will be displayed.</string>
+    <!-- Preference summary/info message. -->
+    <string name="ps_foreground_off">The service will only run while this app is in the foreground.</string>
+
+    <!-- Preference option -->
+    <string name="pt_keep_running_after_app_exit">Keep Service Running After App Exit</string>
+
+    <!-- Preference option -->
+    <string name="pt_port">Port Number (1024 &lt; port &lt; 32768)</string>
+    <!-- Preference option -->
+    <string name="pt_cmdline_options">Extra Commandline options</string>
+    <!-- Preference option -->
+    <string name="pt_env">Environment variables.\n(One “name=value” per line)</string>
+
+    <!-- Preference category title -->
+    <string name="pc_paths">SSH Login</string>
+    <!-- Preference option -->
+    <string name="pt_enable_shell_access">Shell access</string>
+    <!-- Preference option -->
+    <string name="pt_home">Home Directory</string>
+    <!-- Preference option -->
+    <string name="pt_shell">Login Shell</string>
+
+    <!-- Preference category title -->
+    <string name="pc_ui">User Interface</string>
+    <!-- Preference option -->
+    <string name="pt_ui_theme">Theme</string>
+    <!-- Preference value for "pt_ui_theme" -->
+    <string name="pe_ui_theme_from_device">Follow device theme</string>
+    <!-- Preference value for "pt_ui_theme" -->
+    <string name="pe_ui_theme_dark">Dark</string>
+    <!-- Preference value for "pt_ui_theme" -->
+    <string name="pe_ui_theme_light">Light</string>
+
+    <!-- Preference option -->
+    <string name="pt_authorized_username">System username</string>
+    <!-- Preference option -->
+    <string name="pt_authorized_password">System password</string>
+
+    <!-- Preference option -->
+    <string name="pt_single_use_passwords">Single use passwords</string>
+    <!-- Preference summary/info message. -->
+    <string name="ps_single_use_password_info">Allow logins using a single-use password, which will be displayed in the log on-screen when a login attempt is made.</string>
+    <!-- Preference option -->
+    <string name="pt_public_key_login">Public key login</string>
+    <!-- Preference option -->
+    <string name="pt_public_key_login_info">Allow logins using a public key.</string>
+
+    <!-- [VERIFIED] - Menu option / screen title. -->
+    <string name="lbl_settings">Settings</string>
+    <!-- [VERIFIED] - Button label. -->
+    <string name="lbl_start">Start</string>
+    <!-- [VERIFIED] - Button label. -->
+    <string name="lbl_stop">Stop</string>
+    <!-- [VERIFIED] - Button label. -->
+    <string name="ok">OK</string>
+    <!-- [VERIFIED] - Button label. -->
+    <string name="cancel">Cancel</string>
+    <!-- [VERIFIED] -->
+    <string name="yes">Yes</string>
+    <!-- [VERIFIED] -->
+    <string name="no">No</string>
+    <!-- [VERIFIED] -->
+    <string name="dialog_title_attention">Attention</string>
+    <!-- [VERIFIED] -->
+    <string name="dialog_title_warning">Warning</string>
+    <!-- [VERIFIED] -->
+    <string name="action_help">Help</string>
+    <!-- [VERIFIED] -->
+    <string name="pref_not_set">Not set</string>
+
+    <!-- e.g. some setting is "Enabled", switched on.
+        Also used for the Quick settings tile. -->
+    <string name="enabled">Enabled</string>
+    <!-- e.g. some setting is "Disabled", switched off.
+        Also used for the Quick settings tile. -->
+    <string name="disabled">Disabled</string>
+
+
+    <!-- Tile text in case of an error.
+         The user will need to start the app to see the error details -->
+    <string name="err_see_app">Open the app for error information.</string>
+    <!-- info message: the user allowed us to add a Quick Settings tile. -->
+    <string name="tile_added">Tile added</string>
+    <!-- info message: the user did NOT allow us to add a Quick Settings tile. -->
+    <string name="tile_not_added">Tile not added</string>
+    <!-- info message: the user tried to add a Quick Settings tile but it was already added. -->
+    <string name="tile_already_added">Tile already added</string>
+    <!-- info message shown as a dialog when adding a Quick Settings tile is a manual process. -->
+    <string name="info_add_tile">A Quick Settings Tile is provided which allows you to start/stop the service. It must be manually added.</string>
+
+</resources>

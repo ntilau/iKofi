@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false"
+    >
+
+    <TextView
+        android:id="@+id/lbl_all_interfaces"
+        style="@style/Label"
+        android:focusable="false"
+        android:text="@string/lbl_all_interfaces"
+        app:layout_constraintEnd_toStartOf="@+id/lbl_listeners"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/all_interfaces"
+        style="@style/Info"
+        android:focusable="false"
+        app:layout_constraintStart_toStartOf="@id/lbl_all_interfaces"
+        app:layout_constraintTop_toBottomOf="@id/lbl_all_interfaces"
+        tools:text="10.0.2.15\n10.0.2.16\nfec0::30db:80c7:e5f4:230a"
+        />
+
+    <TextView
+        android:id="@+id/lbl_listeners"
+        style="@style/Label"
+        android:focusable="false"
+        android:text="@string/lbl_listeners"
+        app:layout_constraintEnd_toStartOf="@id/tv_buttons"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lbl_all_interfaces"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listeners"
+        style="@style/Info"
+        android:focusable="false"
+        app:layout_constraintEnd_toStartOf="@id/tv_buttons"
+        app:layout_constraintStart_toStartOf="@id/lbl_listeners"
+        app:layout_constraintTop_toBottomOf="@id/lbl_listeners"
+        tools:text="*:2222"
+        />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/div"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        app:layout_constraintEnd_toStartOf="@id/tv_buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/all_interfaces"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/logScroller"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/log_field_margin"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div"
+        >
+
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:textIsSelectable="true"
+            android:typeface="monospace"
+            tools:text="@tools:sample/lorem/random"
+            />
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Only visible in TV mode. -->
+    <LinearLayout
+        android:id="@+id/tv_buttons"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        >
+
+        <Button
+            android:id="@+id/tv_btn_start_action"
+            style="@style/TVButton.Menu"
+            android:text="@string/lbl_start"
+            android:textColor="?attr/startButtonTextColor"
+            />
+
+        <Button
+            android:id="@+id/tv_btn_settings"
+            style="@style/TVButton.Menu"
+            android:layout_marginTop="@dimen/section_margin_top"
+            android:text="@string/lbl_settings"
+            />
+
+        <Button
+            android:id="@+id/tv_btn_import_keys"
+            style="@style/TVButton.Menu"
+            android:text="@string/lbl_import_keys"
+            />
+
+        <Button
+            android:id="@+id/tv_btn_reset_keys"
+            style="@style/TVButton.Menu"
+            android:text="@string/lbl_reset_keys"
+            />
+
+        <Button
+            android:id="@+id/tv_btn_help"
+            style="@style/TVButton.Menu"
+            android:text="@string/action_help"
+            />
+
+        <Button
+            android:id="@+id/tv_btn_about"
+            style="@style/TVButton.Menu"
+            android:text="@string/lbl_about"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

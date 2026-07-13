@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude
+        domain="file"
+        path="./dropbear/dropbear.pid" />
+    <exclude
+        domain="file"
+        path="./dropbear/dropbear.err" />
+    <exclude
+        domain="file"
+        path="./dropbear/dropbear.err.old" />
+
+    <exclude
+        domain="file"
+        path="./dropbear/master_password" />
+    <exclude
+        domain="file"
+        path="./dropbear/authorized_keys" />
+</full-backup-content>

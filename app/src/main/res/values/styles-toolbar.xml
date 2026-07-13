@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *************************************************************************************** -->
+    <!-- Toolbars -->
+    <!-- *************************************************************************************** -->
+
+    <style name="Base.Toolbar"
+           parent="Widget.Material3.Toolbar.Surface">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <!-- padding added for bars with a subtitle which was sticking to the bottom
+             due to using "wrap_content" for the layout_height.
+             The 4dp seems to work out universally and this is better than setting
+             layout_height directly to attr/actionBarSize -->
+        <item name="android:paddingBottom">4dp</item>
+        <!-- adjust icon colour -->
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+    </style>
+
+    <!-- Activity top toolbar. -->
+    <style name="Toolbar.Activity"
+           parent="Base.Toolbar">
+        <!-- We like a top-toolbar which shows some contrast to the rest of the screen.
+             So we set the background color and likewise re-color the text/icons as needed.
+             Note that the icon colors must be done using a materialThemeOverlay.
+
+             Without these adjustments, the toolbar will be
+              - default theme: white with black icon/text
+              - dynamic color: some very light variant of the wallpaper with black text/icons.
+              Neither of these look very appealing IMHO.
+
+              When using dynamic-color in dark-mode, the toolbar can be rather ugly depending
+              on the actual color to which the user has configured their device...
+              We're not going to "fix" this, as we don't have any control over how/when
+              Android is choosing those dynamic colors.
+              Theoretically we could apply or not-apply the below based on the dynamic-color
+              setting.... but adjusting to every Google/Android change is [bleeping] hard
+              enough already.
+      -->
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">?attr/colorOnSurface</item>
+        <item name="subtitleTextColor">?attr/colorOnSurface</item>
+        <item name="layout_scrollFlags">scroll|enterAlways|snap</item>
+    </style>
+
+    <style name="Toolbar.StartStopButton"
+           parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:backgroundTint">?attr/colorButtonNormal</item>
+        <item name="android:insetLeft">4dp</item>
+        <item name="android:insetRight">4dp</item>
+    </style>
+</resources>

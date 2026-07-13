@@ -1,0 +1,41 @@
+<!--
+    Reminder: launcher icons must be 108dp with the actual icon 66dp
+    https://developer.android.com/develop/ui/views/launch/icon_design_adaptive#design-adaptive-icons
+-->
+<!--suppress LongLine -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="108dp"
+        android:height="108dp"
+        android:viewportWidth="480"
+        android:viewportHeight="480">
+
+    <group
+        android:translateX="-64"
+        android:translateY="-44"
+        android:scaleX="0.65"
+        android:scaleY="0.65"
+        android:pivotX="300"
+        android:pivotY="270">
+
+        <!-- shackle (loop) -->
+        <path
+            android:fillColor="#000000"
+            android:pathData="M230,280 L230,200 Q230,110 300,110 Q370,110 370,200 L370,280 L340,280 L340,200 Q340,150 300,150 Q260,150 260,200 L260,280 Z" />
+
+        <!-- lock body -->
+        <path
+            android:fillColor="#000000"
+            android:pathData="M200,270 L400,270 Q420,270 420,290 L420,410 Q420,430 400,430 L200,430 Q180,430 180,410 L180,290 Q180,270 200,270 Z" />
+
+        <!-- keyhole circle -->
+        <path
+            android:fillColor="#ffffff"
+            android:pathData="M300,330 m-12,0 a12,12 0,1,0 24,0 a12,12 0,1,0 -24,0" />
+
+        <!-- keyhole slot -->
+        <path
+            android:fillColor="#ffffff"
+            android:pathData="M291,340 L309,340 L309,375 Q309,380 300,380 Q291,380 291,375 Z" />
+
+    </group>
+</vector>
