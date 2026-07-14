@@ -31,5 +31,5 @@ fi
     #maybe-make-man support/rrsync.1.md
 
     #TODO: figure out how to actually calculate EXTRA_ROUNDING?
-    echo -e "#define EXTRA_ROUNDING 0\n" > rounding.h
+    printf '#define EXTRA_ROUNDING 0\n' > rounding.h
 )
