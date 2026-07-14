@@ -2,6 +2,7 @@ package com.hardbacknutter.sshd.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Environment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -230,6 +231,10 @@ public final class Prefs {
     /**
      * {@code SshdService#start_sshd} parameter.
      *
+     * Returns the SSH home directory.  Defaults to the device's external
+     * storage root (/sdcard / /storage/emulated/0).  Falls back to the
+     * app's private files dir when external storage is not available.
+     *
      * @param context Current context
      * @param prefs   to read from
      *
@@ -239,9 +244,14 @@ public final class Prefs {
     public static String getHomePath(@NonNull final Context context,
                                      @NonNull final SharedPreferences prefs) {
         String homePath = prefs.getString(HOME, null);
-        // If never set, init to the 'files' directory. */
+        // If never set, default to external storage (/sdcard).
         if (homePath == null || !new File(homePath).exists()) {
-            homePath = context.getFilesDir().getPath();
+            final File extStorage = Environment.getExternalStorageDirectory();
+            if (extStorage != null && extStorage.exists()) {
+                homePath = extStorage.getPath();
+            } else {
+                homePath = context.getFilesDir().getPath();
+            }
             prefs.edit().putString(HOME, homePath).apply();
         }
         return homePath;
