@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 public enum StartMode {
     /** User started, or started when the app starts. */

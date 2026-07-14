@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd.settings;
+package com.ikofi.sshd.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;

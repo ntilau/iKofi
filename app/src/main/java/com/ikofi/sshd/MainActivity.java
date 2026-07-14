@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.hardbacknutter.sshd.settings.Prefs;
+import com.ikofi.sshd.settings.Prefs;
 
 /**
  * Handles start/stop by Intent.
@@ -23,18 +23,18 @@ public class MainActivity
         extends AppCompatActivity {
 
     /**
-     * From adb shell: {@code am start -a com.hardbacknutter.sshd.fg.START}.
+     * From adb shell: {@code am start -a com.ikofi.sshd.fg.START}.
      * <p>
      * Failure to start will return a {@link Activity#RESULT_CANCELED}.
      */
-    private static final String START = "com.hardbacknutter.sshd.fg.START";
+    private static final String START = "com.ikofi.sshd.fg.START";
 
     /**
-     * From adb shell: {@code am start -a com.hardbacknutter.sshd.fg.STOP}.
+     * From adb shell: {@code am start -a com.ikofi.sshd.fg.STOP}.
      * <p>
      * A successful stop will return a  {@link Activity#RESULT_OK}.
      */
-    private static final String STOP = "com.hardbacknutter.sshd.fg.STOP";
+    private static final String STOP = "com.ikofi.sshd.fg.STOP";
 
     private ServiceViewModel vm;
 

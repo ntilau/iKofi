@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd.settings;
+package com.ikofi.sshd.settings;
 
 import android.content.Context;
 
@@ -9,8 +9,8 @@ import androidx.preference.PreferenceDataStore;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import com.hardbacknutter.sshd.R;
-import com.hardbacknutter.sshd.SshdSettings;
+import com.ikofi.sshd.R;
+import com.ikofi.sshd.SshdSettings;
 
 class UserPassStorage
         extends PreferenceDataStore {

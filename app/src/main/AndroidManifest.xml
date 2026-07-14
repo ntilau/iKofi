@@ -52,11 +52,11 @@
             </intent-filter>
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="com.hardbacknutter.sshd.fg.START" />
+                <action android:name="com.ikofi.sshd.fg.START" />
             </intent-filter>
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="com.hardbacknutter.sshd.fg.STOP" />
+                <action android:name="com.ikofi.sshd.fg.STOP" />
             </intent-filter>
         </activity>
 

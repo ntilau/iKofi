@@ -10,7 +10,7 @@
 GRADLEW  := ./gradlew
 APK_DIR  := app/build/outputs/apk/debug
 APK_NAME := iKofi-*-debug.apk
-APP_ID   := com.hardbacknutter.sshd
+APP_ID   := com.ikofi.sshd
 APP_ID_DEBUG := $(APP_ID).debug
 
 # ── JDK 21 detection ──────────────────────────────────────────────

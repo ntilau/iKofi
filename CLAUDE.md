@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**iKofi** — An Android app that bundles a full SSH server (Dropbear), SFTP server (from OpenSSH), rsync, and scp. It runs as a foreground Android service for persistent background operation. The app ID is `com.hardbacknutter.sshd`, currently at version 0.1 (code 1).
+**iKofi** — An Android app that bundles a full SSH server (Dropbear), SFTP server (from OpenSSH), rsync, and scp. It runs as a foreground Android service for persistent background operation. The app ID is `com.ikofi.sshd`, currently at version 0.1 (code 1).
 
 - **Min SDK**: 30 (Android 11) | **Target/Compile SDK**: 36 (Android 16)
 - **JDK**: 21 | **AGP**: 9.2.1 | **NDK**: 30.0.14904198 | **CMake**: 4.1.2
@@ -29,10 +29,10 @@ export ANDROID_HOME=$HOME/android-sdk
 ./gradlew connectedDebugAndroidTest
 
 # Run a single test class:
-./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.hardbacknutter.sshd.UserPasswordTest
+./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.ikofi.sshd.UserPasswordTest
 
 # Run an individual test method:
-./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.hardbacknutter.sshd.UserPasswordTest#pw
+./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.ikofi.sshd.UserPasswordTest#pw
 
 # Clean:
 ./gradlew clean
@@ -126,7 +126,7 @@ Run `./setup.sh` to install dependencies (JDK 21, Android SDK, NDK, CMake). You 
 ## Testing
 
 - All tests are **Android instrumentation tests** (run on emulator/device via `connectedCheck`)
-- Tests are in `app/src/androidTest/java/com/hardbacknutter/sshd/`
+- Tests are in `app/src/androidTest/java/com/ikofi/sshd/`
 - Two test files:
   - `UserArgsTest.java` — tests command-line option parsing (`Prefs.splitOptions`, `collectBindings`)
   - `UserPasswordTest.java` — tests password file read/write/hash round-trip via `SshdSettings`

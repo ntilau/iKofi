@@ -1,8 +1,8 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import java.util.List;
 
-import com.hardbacknutter.sshd.settings.Prefs;
+import com.ikofi.sshd.settings.Prefs;
 
 import org.junit.Test;
 

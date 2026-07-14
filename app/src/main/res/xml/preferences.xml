@@ -33,7 +33,7 @@
             />
     </PreferenceCategory>
 
-    <com.hardbacknutter.sshd.settings.ExtPreferenceCategory
+    <com.ikofi.sshd.settings.ExtPreferenceCategory
         android:key="psk_dropbear_ssh"
         android:title="@string/pc_dropbear">
         <!-- Prefs.DEFAULT_PORT -->
@@ -50,7 +50,7 @@
             android:key="sshd.env"
             android:title="@string/pt_env"
             app:useSimpleSummaryProvider="true" />
-    </com.hardbacknutter.sshd.settings.ExtPreferenceCategory>
+    </com.ikofi.sshd.settings.ExtPreferenceCategory>
 
     <PreferenceCategory android:title="@string/pc_paths">
         <SwitchPreference

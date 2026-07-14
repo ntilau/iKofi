@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.ForegroundServiceStartNotAllowedException;
@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-import com.hardbacknutter.sshd.settings.Prefs;
+import com.ikofi.sshd.settings.Prefs;
 
 /**
  * Android foreground service that manages the Dropbear SSH daemon process.
@@ -96,7 +96,7 @@ public class SshdService
     static final String SERVICE_UI_REQUEST = "ServiceUIRequest";
 
     private static final String NOTIFICATION_CHANNEL_ID =
-            "com.hardbacknutter.sshd.NOTIFICATION_CHANNEL";
+            "com.ikofi.sshd.NOTIFICATION_CHANNEL";
     private static final int ONGOING_NOTIFICATION_ID = 1;
 
     private static final String DROPBEAR_PID = "dropbear.pid";

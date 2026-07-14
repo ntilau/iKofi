@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with NeverTooManyBooks. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.hardbacknutter.util.theme;
+package com.ikofi.util.theme;
 
 import android.app.Application;
 import android.content.Context;

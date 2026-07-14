@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd.settings;
+package com.ikofi.sshd.settings;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,7 +11,7 @@ import androidx.preference.PreferenceViewHolder;
 
 /**
  * In your "res/som_prefs.xml" file(s), replace {@code <PreferenceCategory ...}
- * with {@code <com.hardbacknutter.sshd.settings.ExtPreferenceCategory ...}
+ * with {@code <com.ikofi.sshd.settings.ExtPreferenceCategory ...}
  * and the {@code android:summary} attribute will be able to display multiple lines
  * of text.
  */

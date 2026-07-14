@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd.settings;
+package com.ikofi.sshd.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.preference.PreferenceManager;
 
-import com.hardbacknutter.sshd.SshdSettings;
+import com.ikofi.sshd.SshdSettings;
 
 @SuppressWarnings("WeakerAccess")
 public class SettingsViewModel

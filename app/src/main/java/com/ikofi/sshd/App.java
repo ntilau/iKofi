@@ -1,8 +1,8 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.app.Application;
 
-import com.hardbacknutter.util.theme.NightMode;
+import com.ikofi.util.theme.NightMode;
 
 public class App
         extends Application {

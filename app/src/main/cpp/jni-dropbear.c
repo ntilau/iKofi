@@ -455,7 +455,7 @@ const char *from_java_string(JNIEnv *env, jstring str) {
  * @return On success, the PID of the dropbear process.  On failure, -1.
  */
 JNIEXPORT jint JNICALL
-Java_com_hardbacknutter_sshd_SshdService_start_1sshd(
+Java_com_ikofi_sshd_SshdService_start_1sshd(
         JNIEnv *env,
         jobject thiz,
         jstring j_lib_path,
@@ -526,7 +526,7 @@ Java_com_hardbacknutter_sshd_SshdService_start_1sshd(
 }
 
 JNIEXPORT void JNICALL
-Java_com_hardbacknutter_sshd_SshdService_kill(
+Java_com_ikofi_sshd_SshdService_kill(
         JNIEnv *env,
         jobject thiz,
         jint pid) {
@@ -534,7 +534,7 @@ Java_com_hardbacknutter_sshd_SshdService_kill(
 }
 
 JNIEXPORT int JNICALL
-Java_com_hardbacknutter_sshd_SshdService_waitpid(
+Java_com_ikofi_sshd_SshdService_waitpid(
         JNIEnv *env,
         jobject thiz,
         jint pid) {
@@ -548,18 +548,18 @@ Java_com_hardbacknutter_sshd_SshdService_waitpid(
 
 /* static */
 JNIEXPORT jstring JNICALL
-Java_com_hardbacknutter_sshd_SshdService_getDropbearVersion(JNIEnv *env, jclass clazz) {
+Java_com_ikofi_sshd_SshdService_getDropbearVersion(JNIEnv *env, jclass clazz) {
     return (*env)->NewStringUTF(env, DROPBEAR_VERSION);
 }
 
 /* static */
 JNIEXPORT jstring JNICALL
-Java_com_hardbacknutter_sshd_SshdService_getOpensshVersion(JNIEnv *env, jclass clazz) {
+Java_com_ikofi_sshd_SshdService_getOpensshVersion(JNIEnv *env, jclass clazz) {
     return (*env)->NewStringUTF(env, SSH_RELEASE);
 }
 
 /* static */
 JNIEXPORT jstring JNICALL
-Java_com_hardbacknutter_sshd_SshdService_getRsyncVersion(JNIEnv *env, jclass clazz) {
+Java_com_ikofi_sshd_SshdService_getRsyncVersion(JNIEnv *env, jclass clazz) {
     return (*env)->NewStringUTF(env, RSYNC_VERSION);
 }

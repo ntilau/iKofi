@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd.settings;
+package com.ikofi.sshd.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,9 +25,9 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import com.hardbacknutter.sshd.R;
-import com.hardbacknutter.sshd.SshdSettings;
-import com.hardbacknutter.util.theme.NightMode;
+import com.ikofi.sshd.R;
+import com.ikofi.sshd.SshdSettings;
+import com.ikofi.util.theme.NightMode;
 
 public class SettingsFragment
         extends PreferenceFragmentCompat

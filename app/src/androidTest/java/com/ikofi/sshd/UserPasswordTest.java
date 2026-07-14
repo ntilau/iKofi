@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.content.Context;
 import android.util.Log;

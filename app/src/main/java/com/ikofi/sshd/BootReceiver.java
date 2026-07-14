@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
-import com.hardbacknutter.sshd.settings.Prefs;
+import com.ikofi.sshd.settings.Prefs;
 
 /**
  * Handle start-on-boot.

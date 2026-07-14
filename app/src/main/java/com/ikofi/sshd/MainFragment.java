@@ -1,4 +1,4 @@
-package com.hardbacknutter.sshd;
+package com.ikofi.sshd;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -52,10 +52,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import com.hardbacknutter.sshd.databinding.DialogAboutBinding;
-import com.hardbacknutter.sshd.databinding.FragmentMainBinding;
-import com.hardbacknutter.sshd.settings.Prefs;
-import com.hardbacknutter.sshd.settings.SettingsFragment;
+import com.ikofi.sshd.databinding.DialogAboutBinding;
+import com.ikofi.sshd.databinding.FragmentMainBinding;
+import com.ikofi.sshd.settings.Prefs;
+import com.ikofi.sshd.settings.SettingsFragment;
 
 public class MainFragment
         extends Fragment {
