@@ -11,6 +11,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -523,6 +526,8 @@ public class SshdService
 
         return new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.app)
+                .setLargeIcon(drawableToBitmap(
+                        getDrawable(R.drawable.app)))
                 .setTicker(getString(R.string.app_name))
                 .setContentText(text)
                 .setContentIntent(pendingIntent)
@@ -532,6 +537,23 @@ public class SshdService
                 .setLocalOnly(true)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
+    }
+
+    /**
+     * Convert a vector drawable to a {@link Bitmap} for use as a
+     * notification large icon.
+     */
+    @Nullable
+    private Bitmap drawableToBitmap(@Nullable final Drawable drawable) {
+        if (drawable == null) {
+            return null;
+        }
+        final int size = (int) (64 * getResources().getDisplayMetrics().density);
+        final Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
     private void updateUI() {
